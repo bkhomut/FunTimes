@@ -1,0 +1,26 @@
+<h1>New Note</h1>
+
+
+<%= form_tag(notes_url, method: 'post') do %>
+
+
+  <div>
+    <%= label_tag :note_id %><br />
+    <%= text_field_tag :note_id %>
+  </div>
+
+  <div>
+    <%= label_tag :case_id %><br />
+    <%= text_field_tag :case_id %>
+  </div>
+
+  <div>
+    <%= label_tag :note %><br />
+    <%= text_area_tag :note %>
+  </div>
+
+
+  <div>
+    <%= submit_tag "Create Note" %>
+  </div>
+<% end %>

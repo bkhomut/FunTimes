@@ -1,0 +1,32 @@
+<h1>Notes</h1>
+
+<p><%= link_to 'Add a New Note', new_note_url %></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Note</th>
+      <th>Case</th>
+      <th>Note</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @notes.each do |note| %>
+    <tr>
+      <td><%= note.note_id %></td>
+      <td><%= note.case_id %></td>
+      <td><%= note.note %></td>
+  
+      <td><%= link_to 'Show', note_url(note) %></td>
+      <td><%= link_to 'Edit', edit_note_url(note) %></td>
+      <td><%= link_to 'Destroy', note_url(note), method: 'delete', data: { confirm: "Do you really want to delete this note?" } %></td>
+
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
