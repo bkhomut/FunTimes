@@ -1,0 +1,26 @@
+<h1>Editing Engagement #<%= @engagement.id %></h1>
+
+
+<%= form_tag(engagement_url(@engagement), method: 'put') do %>
+
+  <div>
+    <%= label_tag :case_id %><br />
+    <%= number_field_tag :case_id, @engagement.case_id %>
+  </div>
+
+  <div>
+    <%= label_tag :user_id %><br />
+    <%= number_field_tag :user_id, @engagement.user_id %>
+  </div>
+
+  <div>
+    <%= label_tag :condition_id %><br />
+    <%= number_field_tag :condition_id, @engagement.condition_id %>
+  </div>
+
+  
+  <div>
+    <%= submit_tag "Update Engagement" %>
+  </div>
+
+<% end %>
