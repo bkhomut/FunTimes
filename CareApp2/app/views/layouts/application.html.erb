@@ -8,6 +8,33 @@
 </head>
 <body>
 
+  <header>
+    <h1>Care App Two</h1>
+    <nav>
+      <%= link_to "Users", '/users' %> |
+      <%= link_to "Engagements", '/engagements' %> |
+      <%= link_to "Notes", '/notes' %> |
+
+      <% if session["user_id"].present? %>
+        Hello, <%= User.find_by_id(session["user_id"]).name %>!
+        <%= link_to "Sign Out", "/logout" %>
+      <% else %>
+        <%= link_to "Sign Up", '/users/new' %>
+        <%= link_to "Login", '/login' %>
+      <% end %>
+
+    </nav>
+
+<!--      <%= form_tag '/search' do %>
+        <%= text_field_tag :term, "", placeholder: 'Search...' %>
+      <% end %>
+-->
+
+  </header>
+
+  <div class="notice"><%= notice %></div>
+
+
 <%= yield %>
 
 </body>
