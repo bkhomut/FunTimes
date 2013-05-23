@@ -1,4 +1,13 @@
 CareApp2::Application.routes.draw do
+  
+  #------------------------------
+  get '/login', controller: 'sessions', action: 'new'
+  post '/sessions', controller: 'sessions', action: 'create'
+  get "/logout", controller: 'sessions', action: 'destroy'
+
+  post "/search", controller: 'movies', action: 'filter'
+
+  #------------------------------
   # Routes for the Engagement resource:
   # CREATE
   get '/engagements/new', controller: 'engagements', action: 'new', as: 'new_engagement'
