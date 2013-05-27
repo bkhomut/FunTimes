@@ -1,5 +1,5 @@
 class Engagement < ActiveRecord::Base
 
-	has_many :engagements
+	belongs_to :user
 
 end

@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
 
     if user && user.authenticate(params["password"])
       session["user_id"] = user.id
-      redirect_to "/", notice: "Welcome back, #{user.first_name}"
+      redirect_to "/engagements", notice: "Welcome back, #{user.first_name}"
     else
       redirect_to "/login", notice: "Unknown email or password."
     end

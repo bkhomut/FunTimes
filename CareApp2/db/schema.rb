@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130521035503) do
+ActiveRecord::Schema.define(:version => 20130527194918) do
 
   create_table "cases", :force => true do |t|
     t.integer "case_id"
@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(:version => 20130521035503) do
     t.string  "first_name"
     t.string  "last_name"
     t.string  "email"
-    t.string  "password"
+    t.string  "password_digest"
   end
 
 end
