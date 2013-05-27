@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session["user_id"] = nil
-    redirect_to "/users", notice: "Come back soon!"
+    redirect_to "/", notice: "Come back soon!"
   end
   def new
   end
@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
 
     if user && user.authenticate(params["password"])
       session["user_id"] = user.id
-      redirect_to "/users", notice: "Welcome back, #{user.first_name}"
+      redirect_to "/", notice: "Welcome back, #{user.first_name}"
     else
       redirect_to "/login", notice: "Unknown email or password."
     end

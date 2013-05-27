@@ -5,7 +5,7 @@ CareApp2::Application.routes.draw do
   post '/sessions', controller: 'sessions', action: 'create'
   get "/logout", controller: 'sessions', action: 'destroy'
 
-  post "/search", controller: 'movies', action: 'filter'
+  post "/search", controller: 'users', action: 'filter'
 
   #------------------------------
   # Routes for the Engagement resource:
@@ -77,7 +77,9 @@ CareApp2::Application.routes.draw do
   delete '/users/:id', controller: 'users', action: 'destroy'
   #------------------------------
 
-  get '/', controller: 'users', action: 'index', as: 'users'
+  ##get '/', controller: 'users', action: 'index', as: 'users'
 
+  get '/about', controller: 'about', action: 'index', as: 'about'
+  get '/contact', controller: 'contact', action: 'index', as: 'contact'
 
 end
