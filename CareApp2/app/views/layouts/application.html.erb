@@ -43,7 +43,6 @@
           <a class="brand" href="/">CareApp Two</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li class="active"><a href="/">Home</a></li>
               <li><a href="/about">About</a></li>
               <li><a href="/contact">Contact</a></li>
                 <% if session["user_id"].present? %>
@@ -66,6 +65,8 @@
 
     <%=yield%>
     
+    <!-- <%=render 'layouts/footer'%> 
+
 
     <!-- Le javascript
     ================================================== -->
@@ -85,8 +86,5 @@
     <script src="../assets/js/bootstrap-typeahead.js"></script>
 
   </body>
-  
-  <%=render 'layouts/footer'%>
-
 </html>
 

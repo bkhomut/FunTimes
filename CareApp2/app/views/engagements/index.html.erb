@@ -40,7 +40,7 @@
     <table class="table table-striped table-hover">
       <thead>
         <tr>
-          <th>Case #</th>
+          <th>View</th>
           <th>Patient Name</th>
           <th>Condition</th>
     <!--
@@ -55,7 +55,7 @@
       <tbody>
       <% @engagements.each do |engagement| %>
         <tr>
-          <td><%= engagement.case_id %></td>
+          <td><%= link_to 'View Engagement', engagement_url(engagement) %></td>
           <td><% u = User.find_by_id(engagement.user_id) %>
               <% if u.present? %>
               <% engagement.user_id %>
