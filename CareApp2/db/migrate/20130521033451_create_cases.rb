@@ -6,4 +6,4 @@ class CreateCases < ActiveRecord::Migration
       t.integer :condition_id
     end
   end
-
+end
