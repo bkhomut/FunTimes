@@ -34,15 +34,14 @@
     <body class = "container">
 
 
-
-      <h1>New User</h1>
+      <h1>Register New Account</h1>
 
 
       <%= form_tag(users_url, method: 'post') do %>
 
 
         <div>
-          <%= label_tag :user_id %>
+          <%= label_tag :user_id %> 
           <%= number_field_tag :user_id %>
         </div>
 
@@ -74,8 +73,9 @@
         <br></br>
 
         <div>
-          <%= submit_tag "Create User" %>
+          <%= submit_tag "Sign Up" %>
         </div>
+      
       <% end %>
 
 

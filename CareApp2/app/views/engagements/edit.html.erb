@@ -36,20 +36,22 @@
     <h1 class = "text-left">Editing Engagement #<%= @engagement.id %></h1>
 
 
+
     <div><%= form_tag(engagement_url(@engagement), method: 'put') do %></div>
 
+
       <div>
-        <%= label_tag :case_id %><br />
+        <%= label_tag :case_id %>
         <%= number_field_tag :case_id, @engagement.engagement_id %>
       </div>
 
       <div>
-        <%= label_tag :user_id %><br />
+        <%= label_tag :user_id %>
         <%= number_field_tag :user_id, @engagement.user_id %>
       </div>
 
       <div>
-        <%= label_tag :condition_id %><br />
+        <%= label_tag :condition_id %>
         <%= number_field_tag :condition_id, @engagement.condition_id %>
       </div>
 
