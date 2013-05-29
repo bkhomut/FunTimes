@@ -1,4 +1,4 @@
-Class CreateCases < ActiveRecord::Migration
+class CreateCases < ActiveRecord::Migration
   def change
     create_table :cases do |t|
       t.integer :case_id
