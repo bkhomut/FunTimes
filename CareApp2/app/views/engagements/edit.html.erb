@@ -35,16 +35,12 @@
 
     <h1 class = "text-left">Editing Engagement #<%= @engagement.id %></h1>
 
-<!--    
-    <p><%= link_to 'Delete Engagement', engagement_url(engagement), method: 'delete', data: { confirm: "Do you really want to delete this engagement?" } %></p>
--->
-
 
     <div><%= form_tag(engagement_url(@engagement), method: 'put') do %></div>
 
       <div>
         <%= label_tag :case_id %><br />
-        <%= number_field_tag :case_id, @engagement.case_id %>
+        <%= number_field_tag :case_id, @engagement.engagement_id %>
       </div>
 
       <div>
@@ -57,7 +53,7 @@
         <%= number_field_tag :condition_id, @engagement.condition_id %>
       </div>
 
-      
+      <br></br>
       <div>
         <%= submit_tag "Update Engagement" %>
       </div>
@@ -65,7 +61,6 @@
     <% end %>
 
 
-    </div> <!-- /container -->
 
     <!-- Le javascript
     ================================================== -->

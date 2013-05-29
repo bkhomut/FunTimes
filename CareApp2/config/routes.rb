@@ -77,8 +77,7 @@ CareApp2::Application.routes.draw do
   delete '/users/:id', controller: 'users', action: 'destroy'
   #------------------------------
 
-  ##get '/', controller: 'users', action: 'index', as: 'users'
-
+  get '/', controller: 'home', action: 'index', as: 'home'
   get '/about', controller: 'about', action: 'index', as: 'about'
   get '/contact', controller: 'contact', action: 'index', as: 'contact'
 

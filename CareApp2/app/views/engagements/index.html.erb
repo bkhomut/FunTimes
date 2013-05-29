@@ -33,48 +33,17 @@
 
     <body class = "container">
 
-    <h1 class = "text-left">Engagements</h1>
+      <div class="container">
 
-    <p><%= link_to 'Add a New Engagement', new_engagement_url %></p>
+        <!-- Main hero unit for a primary marketing message or call to action -->
+        <div class="hero-unit">
+          <h1>Hello, world!</h1>
+          <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>      
+          <p><a href="/about" class="btn btn-primary btn-large">Learn more »</a></p>
+      </div>
 
-    <table class="table table-striped table-hover">
-      <thead>
-        <tr>
-          <th>View</th>
-          <th>Patient Name</th>
-          <th>Condition</th>
-    <!--
-          <th></th>
-          <th></th>
-          <th></th> 
-    -->
 
-        </tr>
-      </thead>
 
-      <tbody>
-      <% @engagements.each do |engagement| %>
-        <tr>
-          <td><%= link_to 'View Engagement', engagement_url(engagement) %></td>
-          <td><% u = User.find_by_id(engagement.user_id) %>
-              <% if u.present? %>
-              <% engagement.user_id %>
-              <%= u.first_name %>
-              <%end%></td>
-          <td><% c = Condition.find_by_id(engagement.condition_id) %>
-              <% if c.present? %>
-              <% engagement.condition_id %>
-              <%= c.condition_name %>
-              <%end%></td>
-    <!--    
-          <td><%= link_to 'Show', engagement_url(engagement) %></td>
-          <td><%= link_to 'Edit', edit_engagement_url(engagement) %></td>
-          <td><%= link_to 'Destroy', engagement_url(engagement), method: 'delete', data: { confirm: "Do you really want to delete this engagement?" } %></td>
-    -->
-        </tr>
-      <% end %>
-
-    </div> <!-- /container -->
 
     <!-- Le javascript
     ================================================== -->
