@@ -33,38 +33,27 @@
 
     <body class = "container">
 
-        <h1>User #<%= @user.id %></h1>
+      <h1>Editing Engagement #<%= @engagement.id %></h1>
 
-<!--        <p><%#= link_to 'Edit', edit_user_url(user) %></p>   -->
+
+      <%= form_tag(engagement_url(@engagement), method: 'put') do %>
+
+        <div>
+          <%= label_tag :user_id %><br />
+          <%= number_field_tag :user_id, @engagement.user_id %>
+        </div>
+
+        <div>
+          <%= label_tag :condition_id %><br />
+          <%= number_field_tag :condition_id, @engagement.condition_id %>
+        </div>
+
         
-        <table id = "wrapper" class="table table-striped table-hover">
-          <thead>
-            <tr>
-              <th>View</th>
-              <th>Patient Name</th>
-              <th>Condition</th>
+        <div>
+          <%= submit_tag "Update Engagement" %>
+        </div>
 
-
-            </tr>
-          </thead>
-
-          <tbody>
-          <% @engagements.each do |engagement| %>
-            <tr>
-              <td><%= link_to 'View Engagement', engagement_url(engagement) %></td>
-              <td><% u = User.find_by_id(engagement.user_id) %>
-                  <% if u.present? %>
-                  <% engagement.user_id %>
-                  <%= u.first_name %>
-                  <%end%></td>
-              <td><% c = Condition.find_by_id(engagement.condition_id) %>
-                  <% if c.present? %>
-                  <% engagement.condition_id %>
-                  <%= c.condition_name %>
-                  <%end%></td>
-
-            </tr>
-          <% end %>
+      <% end %>
 
 
     <!-- Le javascript
@@ -87,4 +76,9 @@
 
   </body>
 </html>
+
+
+
+
+
 

@@ -1,0 +1,30 @@
+<h1>Permissions</h1>
+
+<p><%= link_to 'Add a New Permission', new_permission_url %></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Engagement</th>
+      <th>User</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @permissions.each do |permission| %>
+    <tr>
+      <td><%= permission.engagement_id %></td>
+      <td><%= permission.user_id %></td>
+  
+      <td><%= link_to 'Show', permission_url(permission) %></td>
+      <td><%= link_to 'Edit', edit_permission_url(permission) %></td>
+      <td><%= link_to 'Destroy', permission_url(permission), method: 'delete', data: { confirm: "Do you really want to delete this permission?" } %></td>
+
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+

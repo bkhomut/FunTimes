@@ -1,20 +1,67 @@
+
 <!DOCTYPE html>
-<html>
-  
-<head>
+<html lang="en">
+  <head>
     <meta charset="utf-8">
-    <title>Care App</title>
+    <title></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <!-- Le styles -->
+    <!-- CSS -->
     <link href="../assets/css/bootstrap.css" rel="stylesheet">
     <style type="text/css">
+
+      /* Sticky footer styles
+      -------------------------------------------------- */
+
+      html,
       body {
-        padding-top: 60px;
-        padding-bottom: 40px;
+        height: 100%;
+        /* The html and body elements cannot have any padding or margin. */
       }
+
+      /* Wrapper for page content to push down footer */
+      #wrap {
+        min-height: 100%;
+        height: auto !important;
+        height: 100%;
+        /* Negative indent footer by it's height */
+        margin: 0 auto -60px;
+      }
+
+      /* Set the fixed height of the footer here */
+      #push,
+      #footer {
+        height: 60px;
+      }
+      #footer {
+        background-color: #FFFFFF;
+      }
+
+      /* Lastly, apply responsive CSS fixes as necessary */
+      @media (max-width: 767px) {
+        #footer {
+          margin-left: -20px;
+          margin-right: -20px;
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+      }
+
+
+
+      /* Custom page CSS
+      -------------------------------------------------- */
+      /* Not required for template or sticky footer method. */
+
+      .container {
+        width: auto;
+      }
+      .container .credit {
+        margin: 20px 0;
+      }
+
     </style>
     <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
 
@@ -26,45 +73,29 @@
     <!-- Fav and touch icons -->
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
-    <link rel="shortcut icon" href="../assets/ico/favicon.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+                    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+                                   <link rel="shortcut icon" href="../assets/ico/favicon.png">
   </head>
 
-    <body class = "container">
-
-        <h1>User #<%= @user.id %></h1>
-
-<!--        <p><%#= link_to 'Edit', edit_user_url(user) %></p>   -->
-        
-        <table id = "wrapper" class="table table-striped table-hover">
-          <thead>
-            <tr>
-              <th>View</th>
-              <th>Patient Name</th>
-              <th>Condition</th>
+  <body>
 
 
-            </tr>
-          </thead>
+    <!-- Part 1: Wrap all page content here -->
+    <div id="wrap">
 
-          <tbody>
-          <% @engagements.each do |engagement| %>
-            <tr>
-              <td><%= link_to 'View Engagement', engagement_url(engagement) %></td>
-              <td><% u = User.find_by_id(engagement.user_id) %>
-                  <% if u.present? %>
-                  <% engagement.user_id %>
-                  <%= u.first_name %>
-                  <%end%></td>
-              <td><% c = Condition.find_by_id(engagement.condition_id) %>
-                  <% if c.present? %>
-                  <% engagement.condition_id %>
-                  <%= c.condition_name %>
-                  <%end%></td>
 
-            </tr>
-          <% end %>
+    </div>
+
+    <div id="footer">
+      <div class="container">
+          <hr>
+          <small>
+             <p>© CareApp Two 2013</p>
+          </small>
+      </div>
+    </div>
+
 
 
     <!-- Le javascript
@@ -84,7 +115,7 @@
     <script src="../assets/js/bootstrap-carousel.js"></script>
     <script src="../assets/js/bootstrap-typeahead.js"></script>
 
-
   </body>
 </html>
+
 

@@ -33,40 +33,45 @@
 
     <body class = "container">
 
-        <h1>User #<%= @user.id %></h1>
+        <h1>Active Engagements</h1>
 
-<!--        <p><%#= link_to 'Edit', edit_user_url(user) %></p>   -->
+        <ul class="nav nav-tabs">
+          <li><a href="/engagement/new">Create New Engagement</a></li>
+          <li><a href="/engagement/new">Edit Profile</a></li>
+        </ul>
+
+
+        <br></br>
+
+        <%if @engagements.empty? == true %>
+          <p class="text-center text-info">You have no active enagagements.</p>
         
-        <table id = "wrapper" class="table table-striped table-hover">
-          <thead>
-            <tr>
-              <th>View</th>
-              <th>Patient Name</th>
-              <th>Condition</th>
+        <% else %>
+          <table id = "wrapper" class="table table-striped table-hover">
+            <thead>
+              <tr>
+                <th>View</th>
+                <th>Patient</th>
+               <th>Condition</th>
+              </tr>
+            </thead>
 
+            <tbody>
+              <% @engagements.each do |engagement| %>
 
-            </tr>
-          </thead>
+              <tr>
+                <td><%= link_to 'View Engagement', engagement_url(engagement) %></td>
+                <td><% u = User.find_by_id(engagement.user_id) %>
+                    <% if u.present?%>
+                    <% engagement.user_id %>
+                    <%= u.first_name %>
+                    <%end%></td>
+                <td></td>
 
-          <tbody>
-          <% @engagements.each do |engagement| %>
-            <tr>
-              <td><%= link_to 'View Engagement', engagement_url(engagement) %></td>
-              <td><% u = User.find_by_id(engagement.user_id) %>
-                  <% if u.present? %>
-                  <% engagement.user_id %>
-                  <%= u.first_name %>
-                  <%end%></td>
-              <td><% c = Condition.find_by_id(engagement.condition_id) %>
-                  <% if c.present? %>
-                  <% engagement.condition_id %>
-                  <%= c.condition_name %>
-                  <%end%></td>
-
-            </tr>
-          <% end %>
-
-
+              </tr>
+         
+            <% end %>
+        <% end %>
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
@@ -87,4 +92,3 @@
 
   </body>
 </html>
-

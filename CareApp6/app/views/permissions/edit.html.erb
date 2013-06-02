@@ -1,0 +1,21 @@
+<h1>Editing Permission #<%= @permission.id %></h1>
+
+
+<%= form_tag(permission_url(@permission), method: 'put') do %>
+
+  <div>
+    <%= label_tag :engagement_id %><br />
+    <%= number_field_tag :engagement_id, @permission.engagement_id %>
+  </div>
+
+  <div>
+    <%= label_tag :user_id %><br />
+    <%= number_field_tag :user_id, @permission.user_id %>
+  </div>
+
+  
+  <div>
+    <%= submit_tag "Update Permission" %>
+  </div>
+
+<% end %>

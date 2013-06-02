@@ -1,0 +1,30 @@
+<h1>Engagements</h1>
+
+<p><%= link_to 'Add a New Engagement', new_engagement_url %></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Condition</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @engagements.each do |engagement| %>
+    <tr>
+      <td><%= engagement.user_id %></td>
+      <td><%= engagement.condition_id %></td>
+  
+      <td><%= link_to 'Show', engagement_url(engagement) %></td>
+      <td><%= link_to 'Edit', edit_engagement_url(engagement) %></td>
+      <td><%= link_to 'Destroy', engagement_url(engagement), method: 'delete', data: { confirm: "Do you really want to delete this engagement?" } %></td>
+
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+

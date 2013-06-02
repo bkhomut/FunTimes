@@ -1,0 +1,21 @@
+<h1>New Engagement</h1>
+
+
+<%= form_tag(engagements_url, method: 'post') do %>
+
+
+  <div>
+    <%= label_tag :user_id %><br />
+    <%= number_field_tag :user_id %>
+  </div>
+
+  <div>
+    <%= label_tag :condition_id %><br />
+    <%= number_field_tag :condition_id %>
+  </div>
+
+
+  <div>
+    <%= submit_tag "Create Engagement" %>
+  </div>
+<% end %>

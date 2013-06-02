@@ -1,0 +1,16 @@
+<h1>New Condition</h1>
+
+
+<%= form_tag(conditions_url, method: 'post') do %>
+
+
+  <div>
+    <%= label_tag :condition_name %><br />
+    <%= text_field_tag :condition_name %>
+  </div>
+
+
+  <div>
+    <%= submit_tag "Create Condition" %>
+  </div>
+<% end %>

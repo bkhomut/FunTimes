@@ -33,38 +33,47 @@
 
     <body class = "container">
 
-        <h1>User #<%= @user.id %></h1>
 
-<!--        <p><%#= link_to 'Edit', edit_user_url(user) %></p>   -->
-        
-        <table id = "wrapper" class="table table-striped table-hover">
-          <thead>
-            <tr>
-              <th>View</th>
-              <th>Patient Name</th>
-              <th>Condition</th>
+      <h1>Register New Account</h1>
 
 
-            </tr>
-          </thead>
+      <%= form_tag(users_url, method: 'post') do %>
 
-          <tbody>
-          <% @engagements.each do |engagement| %>
-            <tr>
-              <td><%= link_to 'View Engagement', engagement_url(engagement) %></td>
-              <td><% u = User.find_by_id(engagement.user_id) %>
-                  <% if u.present? %>
-                  <% engagement.user_id %>
-                  <%= u.first_name %>
-                  <%end%></td>
-              <td><% c = Condition.find_by_id(engagement.condition_id) %>
-                  <% if c.present? %>
-                  <% engagement.condition_id %>
-                  <%= c.condition_name %>
-                  <%end%></td>
+        <br></br>
 
-            </tr>
-          <% end %>
+        <div>
+          <%= label_tag :user_type %>
+          <%= select_tag(:user_type,options_for_select([['', 0],['Patient', 1], ['Family', 2], ['Physician', 3]])) %>
+        </div>
+
+        <div>
+          <%= label_tag :first_name %>
+          <%= text_field_tag :first_name %>
+        </div>
+
+        <div>
+          <%= label_tag :last_name %>
+          <%= text_field_tag :last_name %>
+        </div>
+
+        <div>
+          <%= label_tag :email %>
+          <%= text_field_tag :email %>
+        </div>
+
+        <div>
+          <%= label_tag :password %>
+          <%= text_field_tag :password %>
+        </div>
+
+        <br></br>
+
+        <div>
+          <%= submit_tag "Sign Up" %>
+        </div>
+      
+      <% end %>
+
 
 
     <!-- Le javascript
@@ -87,4 +96,3 @@
 
   </body>
 </html>
-

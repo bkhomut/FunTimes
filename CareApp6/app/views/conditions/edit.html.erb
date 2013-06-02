@@ -1,0 +1,16 @@
+<h1>Editing Condition #<%= @condition.id %></h1>
+
+
+<%= form_tag(condition_url(@condition), method: 'put') do %>
+
+  <div>
+    <%= label_tag :condition_name %><br />
+    <%= text_field_tag :condition_name, @condition.condition_name %>
+  </div>
+
+  
+  <div>
+    <%= submit_tag "Update Condition" %>
+  </div>
+
+<% end %>

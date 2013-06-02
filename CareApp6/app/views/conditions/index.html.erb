@@ -1,0 +1,28 @@
+<h1>Conditions</h1>
+
+<p><%= link_to 'Add a New Condition', new_condition_url %></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Condition name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @conditions.each do |condition| %>
+    <tr>
+      <td><%= condition.condition_name %></td>
+  
+      <td><%= link_to 'Show', condition_url(condition) %></td>
+      <td><%= link_to 'Edit', edit_condition_url(condition) %></td>
+      <td><%= link_to 'Destroy', condition_url(condition), method: 'delete', data: { confirm: "Do you really want to delete this condition?" } %></td>
+
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
