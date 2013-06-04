@@ -35,11 +35,14 @@
 
         <h1>Active Engagements</h1>
 
+
+
         <ul class="nav nav-tabs">
           <li><a href="/engagement/new">Create New Engagement</a></li>
-          <li><a href="/engagement/new">Edit Profile</a></li>
+          <% if @user["user_id"].present? %>
+          <li><%= link_to 'Edit Profile', "/users/#{user["user_id"]}/edit" %></li>
         </ul>
-
+          <% end %>
 
         <br></br>
 
@@ -61,12 +64,17 @@
 
               <tr>
                 <td><%= link_to 'View Engagement', engagement_url(engagement) %></td>
-                <td><% u = User.find_by_id(engagement.user_id) %>
-                    <% if u.present?%>
+                <td><% e = Engagement.find_by_id(Permission.find_by_id(engagement.engagement_id)) %>
+                    <% if e.present?%>
                     <% engagement.user_id %>
+                    <% u = User.find_by_id(e.user_id) %>
                     <%= u.first_name %>
                     <%end%></td>
-                <td></td>
+                <td><% c = Condition.find_by_id(engagement.engagement_id) %>
+                  <% if c.present? %>
+                  <% engagement.engagement_id %>
+                  <%= c.condition_name %>
+                  <%end%></td>
 
               </tr>
          
