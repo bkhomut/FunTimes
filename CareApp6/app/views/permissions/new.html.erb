@@ -1,19 +1,21 @@
 <h1>New Permission</h1>
 
+<br></br>
 
 <%= form_tag(permissions_url, method: 'post') do %>
 
 
   <div>
-    <%= label_tag :engagement_id %><br />
+    <%= label_tag :engagement_id %>
     <%= number_field_tag :engagement_id %>
   </div>
 
   <div>
-    <%= label_tag :user_id %><br />
+    <%= label_tag :user_id %>
     <%= number_field_tag :user_id %>
   </div>
 
+  <br></br>
 
   <div>
     <%= submit_tag "Create Permission" %>
