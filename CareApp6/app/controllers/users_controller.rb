@@ -8,7 +8,6 @@ class UsersController < ApplicationController
     @user = User.find_by_id(params[:id])
     permissions = Permission.where(:user_id => params[:id])
     @engagements = Engagement.all && permissions 
-
   end
 
   def new

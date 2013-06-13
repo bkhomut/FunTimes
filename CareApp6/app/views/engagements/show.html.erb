@@ -1,21 +1,30 @@
 
 <h2>Your Engagement</h2>
 
-
 <div><%= link_to 'Edit Engagement', "#{@engagement["id"]}/edit" %></div>
-
-<p>
-  <b>User</b>
-  <%= @engagement.user_id %>
-</p>
-
-<p>
-  <b>Condition:</b>
-  <%= @engagement.condition_id %>
-</p>
 
 <br></br>
 
+<p>
+  <b>Patient:</b>
+  <% if @engagement.present? %>
+    <% u = User.find_by_id(@engagement.user_id) %>
+    <%= u.first_name %>
+    <%= u.last_name %>
+  <% else %>
+    <b> NO PATIENT </b>
+  <% end %>
+</p>
+
+
+<p>
+  <b>Condition:</b>
+  <%= @condition.condition_name %>
+</p>
+
+
+<br></br>
+<hr>
 <h2>Permissions</h2>
 
 <p><%= link_to 'Add a New Permission', new_permission_url %></p>
@@ -45,4 +54,3 @@
   <% end %>
   </tbody>
 </table>
-

@@ -8,6 +8,8 @@ class EngagementsController < ApplicationController
     @engagement = Engagement.find_by_id(params[:id])
     permission = Permission.where(:engagement_id => params[:id])
     @permissions = Engagement.all && permission 
+    @user = User.find_by_id(params[@engagement.user_id])
+    @condition = Condition.find_by_id(@engagement.condition_id)
 
   end
 
@@ -17,10 +19,14 @@ class EngagementsController < ApplicationController
 
   def create
     @engagement = Engagement.new
-    @engagement.user_id = params[:user_id]
+    
+    @engagement.user_id = session["user_id"]    
+##    @engagement.user_id = params[:user_id]
     @engagement.condition_id = params[:condition_id]
 
-    ##@user_name = User.find_by_id(:user_id)
+
+
+
 
     if @engagement.save
       redirect_to engagement_url(@engagement.id)

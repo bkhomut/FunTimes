@@ -28,10 +28,11 @@
         <tr>
           <td><%= link_to 'View Engagement', engagement_url(engagement) %></td>
           <td><% e = Engagement.find_by_id(Permission.find_by_id(engagement.engagement_id)) %>
-            <% if e.present?%>
-            <% engagement.user_id %>
-            <% u = User.find_by_id(engagement.user_id) %>
-            <%= u.first_name %>
+            <% if e.present? %>
+              <% u = User.find_by_id(e.user_id) %>
+              <% if u.present? %>
+                <%= u.first_name %>
+              <%end%>
             <%end%></td>
           <td><% c = Condition.find_by_id(engagement.engagement_id) %>
             <% if c.present? %>
